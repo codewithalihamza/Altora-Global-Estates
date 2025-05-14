@@ -1,5 +1,5 @@
 
-interface Property {
+export interface Property {
     title: string;
     location: string;
     price: string;
@@ -7,9 +7,11 @@ interface Property {
     beds: number;
     baths: number;
     sqft: string;
+    type?: string;
+    availability?: string;
 }
 
-const PropertyCard = ({ property }: { property: Property }) => (
+export const PropertyCard = ({ property }: { property: Property }) => (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
         <div className="relative h-64">
             <img
