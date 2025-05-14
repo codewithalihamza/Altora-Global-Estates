@@ -22,8 +22,14 @@ const config: Config = {
       fontSize: {
         "2xs": "0.5rem",
       },
-
       colors: {
+        altora: {
+          navy: "#0A2342",
+          gold: "#C6A760",
+          "gold-light": "#E5D5A7",
+          gray: "#F5F5F5",
+          "gray-dark": "#4A4A4A",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -69,6 +75,10 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'sans-serif'],
       },
     },
   },

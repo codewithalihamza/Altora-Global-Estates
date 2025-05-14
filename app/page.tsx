@@ -1,13 +1,17 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import AwardsSection from './components/home/AwardsSection';
+import FeaturedInSection from './components/home/FeaturedInSection';
+import FeaturedProperties from './components/home/FeaturedProperties';
+import HeroSection from './components/home/HeroSection';
+import StatsSection from './components/home/StatsSection';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      This is Home Page
-      <Button asChild className="mt-4">
-        <Link href="/demo">Go to demo page</Link>
-      </Button>
+    <main>
+      <HeroSection />
+      <StatsSection />
+      <FeaturedProperties />
+      <AwardsSection />
+      <FeaturedInSection />
     </main>
   );
 }
