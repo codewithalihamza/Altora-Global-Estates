@@ -1,405 +1,168 @@
-# Next JS Project
+# Altora Global Estates
+
+A luxury real estate and migration services platform built with Next.js, React, TypeScript, and Tailwind CSS.
 
 ## ⚠️ Important Notes
 
-- 📝 **Type Safety**: Always write types where needed for your components and API calls.
-- 🧩 **Separation of Concerns**: Keep your code modular and organized by separating different concerns.
-- 🔧 **Utility Functions**: Create reusable utility functions to avoid code duplication.
-- 🎨 **Styling**: Use TailwindCSS for consistent and efficient styling.
-- 🖌️ **UI Components**: Utilize Shadcn/UI for building user interface components.
+- 🏢 **Brand Identity**: Maintain consistent use of brand colors (navy blue, soft gold, light gray) across components
+- 📱 **Responsive Design**: Ensure all pages are fully responsive and provide optimal user experience across devices
+- 🔒 **Type Safety**: Implement TypeScript types for all components and API integrations
+- 🎨 **UI Components**: Utilize Tailwind CSS for styling and maintain design consistency
+- 🌐 **SEO**: Implement proper meta tags and SEO best practices for all pages
 
 ## 📋 Table of Contents
 
 - [📥 Installation](#installation)
-- [🚀 Usage](#usage)
-- [🖼️ Icons](#icons)
-- [📝 Forms and Validation](#forms-and-validation)
-  - [📦 Installation](#installation-1)
-  - [🛠️ Usage](#usage-1)
-- [📊 Tables](#tables)
-  - [📦 Installation](#installation-2)
-  - [🛠️ Usage](#usage-2)
+- [🚀 Features](#features)
+- [🎨 Styling](#styling)
+- [📱 Pages](#pages)
 - [🔧 Development](#development)
-  - [🎨 Prettier](#prettier)
-  - [🖌️ Shadcn/UI](#shadcnui)
-- [📚 Documentation Links](#documentation-links)
+- [📚 Documentation](#documentation)
 
 ## Installation
 
 1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   ```
 
-2. Install dependencies using NPM:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-## Usage
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-To start the development server:
+## Features
 
-```bash
-npm run dev
-```
+### 🏠 Core Features
 
-To build the project for production:
+- Responsive navigation with mobile menu
+- Property listings with filtering options
+- Contact forms with validation
+- Newsletter subscription
+- Blog system
+- Migration services information
+- Concierge services
 
-```bash
-npm run build
-```
+### 💅 UI Components
 
-To start the production server:
+- Custom property cards
+- Animated statistics counter
+- Team member profiles
+- Service feature cards
+- Blog post cards
+- Contact information cards
 
-```bash
-npm run start
-```
+### 🛠️ Technical Features
 
-## Icons
+- Next.js 13+ with App Router
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Responsive design
+- SEO optimization
+- Form validation
+- Image optimization
 
-This project uses `react-icons` for icons. You can easily include any icon from popular icon libraries.
+## Pages
 
-To use an icon in your component:
+### 1. Homepage
+- Hero section with property showcase
+- Featured properties
+- Statistics counter
+- Awards section
+- Featured in media section
 
-```tsx
-import { FaBeer } from "react-icons/fa";
+### 2. Properties
+- Property listing with filters
+- Property type categorization
+- Price range filtering
+- Location-based search
+- Availability status
 
-const MyComponent = () => {
-  return <FaBeer />;
-};
-```
+### 3. About Us
+- Company story
+- Team profiles
+- Core values
+- Company achievements
 
-## Forms and Validation
+### 4. Services
+- Concierge services
+- Migration assistance
+- Property management
+- Investment consultation
 
-To handle forms, this project uses `react-hook-form`. For form validations, `zod` is used.
+### 5. Blog
+- Featured article
+- Article categories
+- Article previews
+- Responsive grid layout
 
-### Installation
+### 6. Contact
+- Contact form
+- Office locations
+- Global presence
+- Social media links
 
-Install the required libraries:
+## Styling
 
-```bash
-npm install react-hook-form zod
-```
+The project uses a custom Tailwind CSS configuration with the following brand colors:
 
-### Usage
-
-Here's an example of how to create a form with validation:
-
-```tsx
-"use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-});
-
-export function ProfileForm() {
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-    },
-  });
-
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+```javascript
+colors: {
+  altora: {
+    navy: "#0A2342",
+    gold: "#C6A760",
+    "gold-light": "#E5D5A7",
+    gray: "#F5F5F5",
+    "gray-dark": "#4A4A4A",
   }
-
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
-  );
-}
-
-export default ProfileForm;
-```
-
-## Tables
-
-This project uses `@tanstack/react-table` for creating and managing tables.
-
-### Installation
-
-Install the required library:
-
-```bash
-npm install @tanstack/react-table
-```
-
-### Usage
-
-Here's an example of how to create a table:
-
-## Prerequisites
-
-We are going to build a table to show recent payments. Here's what our data looks like:
-
-```tsx showLineNumbers
-type Payment = {
-  id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
-};
-
-export const payments: Payment[] = [
-  {
-    id: "728ed52f",
-    amount: 100,
-    status: "pending",
-    email: "m@example.com",
-  },
-  {
-    id: "489e1d42",
-    amount: 125,
-    status: "processing",
-    email: "example@gmail.com",
-  },
-  // ...
-];
-```
-
-## Project Structure
-
-Start by creating the following file structure:
-
-```txt
-app
-└── payments
-    ├── columns.tsx
-    ├── data-table.tsx
-    └── page.tsx
-```
-
-I'm using a Next.js example here but this works for any other React framework.
-
-- `columns.tsx` (client component) will contain our column definitions.
-- `data-table.tsx` (client component) will contain our `<DataTable />` component.
-- `page.tsx` (server component) is where we'll fetch data and render our table.
-
-## Basic Table
-
-Let's start by building a basic table.
-
-### Column Definitions
-
-First, we'll define our columns.
-
-```tsx showLineNumbers title="app/payments/columns.tsx" {3,14-27}
-"use client";
-
-import { ColumnDef } from "@tanstack/react-table";
-
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export type Payment = {
-  id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
-};
-
-export const columns: ColumnDef<Payment>[] = [
-  {
-    accessorKey: "status",
-    header: "Status",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
-    accessorKey: "amount",
-    header: "Amount",
-  },
-];
-```
-
-**Note:** Columns are where you define the core of what your table
-will look like. They define the data that will be displayed, how it will be
-formatted, sorted and filtered.
-
-### `<DataTable />` component
-
-Next, we'll create a `<DataTable />` component to render our table.
-
-```tsx showLineNumbers title="app/payments/data-table.tsx"
-"use client";
-
-import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
-
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
-}
-
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
-
-  return (
-    <div className="rounded-md border">
-      <Table>
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                );
-              })}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && "selected"}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
-    </div>
-  );
 }
 ```
 
-**Tip**: If you find yourself using `<DataTable />` in multiple places, this is the component you could make reusable by extracting it to `components/ui/data-table.tsx`.
-
-`<DataTable columns={columns} data={data} />`
-
-### Render the table
-
-Finally, we'll render our table in our page component.
-
-```tsx showLineNumbers title="app/payments/page.tsx" {22}
-import { Payment, columns } from "./columns";
-import { DataTable } from "./data-table";
-
-async function getData(): Promise<Payment[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    // ...
-  ];
-}
-
-export default async function DemoPage() {
-  const data = await getData();
-
-  return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-    </div>
-  );
-}
-```
+Typography:
+- Headings: Playfair Display (serif)
+- Body: Inter (sans-serif)
 
 ## Development
 
-### Prettier
-
-This project uses Prettier for code formatting. The Prettier Tailwind plugin is also included to ensure Tailwind classes are ordered correctly.
-
-To format your code, run:
+### Scripts
 
 ```bash
-npm run prettier
+# Development
+npm run dev
+
+# Build
+npm run build
+
+# Production
+npm run start
+
+# Linting
+npm run lint
+
+# Format code
+npm run format
 ```
 
-### Shadcn/UI
+### Code Style
 
-Shadcn/UI is used for the UI components.
+- ESLint for code linting
+- Prettier for code formatting
+- Husky for pre-commit hooks
+- TypeScript for type checking
 
-## Documentation Links
+## Documentation
 
-- [react-icons documentation](https://react-icons.github.io/react-icons/)
-- [react-hook-form documentation](https://react-hook-form.com/get-started)
-- [zod documentation](https://zod.dev/)
-- [TanStack Table documentation](https://tanstack.com/table/v8/docs/guide/introduction)
-- [Shadcn/UI documentation](https://ui.shadcn.com/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [React Icons](https://react-icons.github.io/react-icons)
+- [Lucide Icons](https://lucide.dev)
+
+## License
+
+This project is private and confidential. All rights reserved.
